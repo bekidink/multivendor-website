@@ -109,16 +109,7 @@ await signOut()
       icon:Building2,
       href:"/dashboard/community"
     },
-    {
-      title:"Wallet",
-      icon:CircleDollarSign,
-      href:"/dashboard/wallet"
-    },
-    {
-      title: "Settings",
-      icon: LayoutGrid,
-      href: "/dashboard/settings",
-    },
+    
     {
       title: "Online Store",
       icon: ExternalLink,
@@ -126,66 +117,66 @@ await signOut()
     },
   ];
   
-  // if(role==="FARMER"){
-  //   sidebarLinks=[
-  //     {
-  //       title: "Customers",
-  //       icon: Users,
-  //       href: "/dashboard/customers",
-  //     },
-  //     {
-  //       title: "Markets",
-  //       icon: Warehouse,
-  //       href: "/dashboard/markets",
-  //     },
+  if(role==="FARMER"){
+    sidebarLinks=[
+      {
+        title: "Customers",
+        icon: Users,
+        href: "/dashboard/customers",
+      },
+      {
+        title: "Markets",
+        icon: Warehouse,
+        href: "/dashboard/markets",
+      },
      
     
-  //     {
-  //       title: "Sales",
-  //       icon: Truck,
-  //       href: "/dashboard/sales",
-  //     },
-  //     {
-  //       title: "Our Staff",
-  //       icon: User,
-  //       href: "/dashboard/staff",
-  //     },
-  //     {
-  //       title:"kb Community",
-  //       icon:Building2,
-  //       href:"/dashboard/community"
-  //     },
-  //     {
-  //       title:"Wallet",
-  //       icon:CircleDollarSign,
-  //       href:"/dashboard/wallet"
-  //     },
-  //     {
-  //       title: "Settings",
-  //       icon: LayoutGrid,
-  //       href: "/dashboard/settings",
-  //     },
-  //     {
-  //       title: "Online Store",
-  //       icon: ExternalLink,
-  //       href: "/dashboard/store",
-  //     },
-  //   ]
-  //   catalogueLinks=[
-  //     {
-  //     title:"Products",
-  //     icon:Boxes,
-  //     href:"/dashboard/products"
-  //   }
-  //   ,
+      {
+        title: "Sales",
+        icon: Truck,
+        href: "/dashboard/sales",
+      },
+      {
+        title: "Our Staff",
+        icon: User,
+        href: "/dashboard/staff",
+      },
+      {
+        title:"kb Community",
+        icon:Building2,
+        href:"/dashboard/community"
+      },
+      {
+        title:"Wallet",
+        icon:CircleDollarSign,
+        href:"/dashboard/wallet"
+      },
+      {
+        title: "Settings",
+        icon: LayoutGrid,
+        href: "/dashboard/settings",
+      },
+      {
+        title: "Online Store",
+        icon: ExternalLink,
+        href: "/dashboard/store",
+      },
+    ]
+    catalogueLinks=[
+      {
+      title:"Products",
+      icon:Boxes,
+      href:"/dashboard/products"
+    }
+    ,
    
-  //   {
-  //     title:"Coupons",
-  //     icon:ScanSearch,
-  //     href:"/dashboard/coupons"
-  //   }
-  // ]
-  // }
+    {
+      title:"Coupons",
+      icon:ScanSearch,
+      href:"/dashboard/coupons"
+    }
+  ]
+  }
   if(role==='USER'){
   sidebarLinks  =[
       
