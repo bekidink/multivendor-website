@@ -1,89 +1,79 @@
-"use client"
-import ImageInput from '@/components/Forminputs/ImageInput'
-import SubmitButton from '@/components/Forminputs/SubmitButton'
-import TextareaInput from '@/components/Forminputs/TextArea'
-import TextInput from '@/components/Forminputs/TextInput'
-import ToggleInput from '@/components/Forminputs/ToggleInput'
-import FormHeader from '@/components/backoffice/FormHeader'
-import { makePostRequest, makePutRequest } from '@/lib/apiRequest'
-import { convertIsoDateToNormal } from '@/lib/convertIsoDateToNormal'
-import generateCouponCode from '@/lib/generateCouponCode'
-import { generateIsoFormattedDate } from '@/lib/generateIsoFormattedDate'
-import { generateSlug } from '@/lib/generateSlug'
-import { X } from 'lucide-react'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
+"use client";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import TextInput from '@/components/Forminputs/TextInput';
+import SubmitButton from '@/components/Forminputs/SubmitButton';
+import ToggleInput from '@/components/Forminputs/ToggleInput';
+import { makePostRequest, makePutRequest } from '@/lib/apiRequest';
+import { convertIsoDateToNormal } from '@/lib/convertIsoDateToNormal';
+import generateCouponCode from '@/lib/generateCouponCode';
+import { generateIsoFormattedDate } from '@/lib/generateIsoFormattedDate';
 
-const NewCouponForm = ({updateData={}}) => {
-  const {data:session,status}=useSession()
-  const isActive = watch("isActive")||false
-  const router=useRouter()
-  const expiryDateNormal=convertIsoDateToNormal(updateData.expiryDate)  
-  const initialImageUrl=updateData?.imageUrl ?? ""
-  const[imageUrl,setImageUrl]=useState(initialImageUrl)
-  const Id=updateData?.id ?? ""
-  updateData.expiryDate=expiryDateNormal
-  const[loading,setLoading]=useState(false)
-  const{register,handleSubmit,watch,formState:{errors},reset}=useForm({
+const NewCouponForm = ({ updateData = {} }) => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  const expiryDateNormal = convertIsoDateToNormal(updateData.expiryDate);
+  const initialImageUrl = updateData?.imageUrl ?? "";
+  const Id = updateData?.id ?? "";
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm({
     defaultValues: {
       isActive: true,
-      ...updateData
+      ...updateData,
     },
   });
-  if(status=="loading"){
-    return null
-  }
-  if(status==="unauthenticated"){
+
+  const isActive = watch("isActive") || false;
+
+  if (status === "loading") {
     return null;
   }
- 
-  const vendorId=session?.user?.id
-  
-  // if(status==="loading"){
-  //   return <p>Loading...</p>
-  // }
-  
-  
-  function redirect(){
- router.push("/dashboard/coupons")
+  if (status === "unauthenticated") {
+    return null;
   }
-  async function onSubmit(data){
-    setLoading(true)
-    data.vendorId=vendorId
-    data.imageUrl=imageUrl
-const couponCode=generateCouponCode(data.title,data.expiryDate)
-const isoFormatedDate=generateIsoFormattedDate(data.expiryDate)
-data.couponCode=couponCode
-data.expiryDate=isoFormatedDate
-if(Id){
-    data.id=Id
-makePutRequest(setLoading,`api/coupons/${Id}`,data,'Coupon',redirect)
-}else{
-    makePostRequest(setLoading,'api/coupons',data,'Coupon ',reset,redirect)
-}
-    
-    setLoading(false)
+
+  const vendorId = session?.user?.id;
+
+  async function onSubmit(data) {
+    setLoading(true);
+    data.vendorId = vendorId;
+    const couponCode = generateCouponCode(data.title, data.expiryDate);
+    const isoFormattedDate = generateIsoFormattedDate(data.expiryDate);
+    data.couponCode = couponCode;
+    data.expiryDate = isoFormattedDate;
+
+    if (Id) {
+      data.id = Id;
+      await makePutRequest(setLoading, `api/coupons/${Id}`, data, 'Coupon', () => router.push("/dashboard/coupons"));
+    } else {
+      await makePostRequest(setLoading, 'api/coupons', data, 'Coupon', reset, () => router.push("/dashboard/coupons"));
+    }
+
+    setLoading(false);
   }
-    return (
+
+  return (
     <div>
-     <form onSubmit={handleSubmit(onSubmit)} action="" className='w-full max-w-5xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-3'>
+      <form onSubmit={handleSubmit(onSubmit)} className='w-full max-w-5xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-3'>
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-            <TextInput label={"Coupon Title"} name={"title"} errors={errors} register={register}/>
-            <TextInput label={"Expiry Date"} name={"expiryDate"} errors={errors} register={register} type='date' className='w-full'/>
-           <ToggleInput
-  label="Publish your Coupon"
-   name={isActive}
-   trueTitle="Active"
-   falseTitle="Draft"
-   register={register}
-  />
+          <TextInput label={"Coupon Title"} name={"title"} errors={errors} register={register} />
+          <TextInput label={"Expiry Date"} name={"expiryDate"} errors={errors} register={register} type='date' className='w-full' />
+          <ToggleInput label="Publish your Coupon" name={"isActive"} trueTitle="Active" falseTitle="Draft" register={register} />
         </div>
-        <SubmitButton isLoading={loading} buttonTitle={Id?"Update Coupon": "Create Coupon"} loadingButtonTitle={Id?"Updating Coupon please wait...":"Creating Coupon please wait..."}/>
-     </form>
+        <SubmitButton isLoading={loading} buttonTitle={Id ? "Update Coupon" : "Create Coupon"} loadingButtonTitle={Id ? "Updating Coupon please wait..." : "Creating Coupon please wait..."} />
+      </form>
     </div>
-  )
+  );
 }
 
-export default NewCouponForm
+export default NewCouponForm;

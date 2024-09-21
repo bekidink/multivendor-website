@@ -4,7 +4,7 @@ import NewCouponForm from '@/components/backoffice/NewCouponForm'
 
 import React from 'react'
 
-const NewCoupon = () => {
+const page = () => {
   
   
     return (
@@ -15,4 +15,4 @@ const NewCoupon = () => {
   )
 }
 
-export default NewCoupon
+export default page
