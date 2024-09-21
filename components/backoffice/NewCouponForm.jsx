@@ -24,9 +24,6 @@ const NewCouponForm = ({updateData={}}) => {
   const initialImageUrl=updateData?.imageUrl ?? ""
   const[imageUrl,setImageUrl]=useState(initialImageUrl)
   const Id=updateData?.id ?? ""
- 
- 
-  const vendorId=session?.user?.id??''
   updateData.expiryDate=expiryDateNormal
   const[loading,setLoading]=useState(false)
   const{register,handleSubmit,watch,formState:{errors},reset}=useForm({
@@ -35,9 +32,18 @@ const NewCouponForm = ({updateData={}}) => {
       ...updateData?? null
     },
   });
-  if(status==="loading"){
-    return <p>Loading...</p>
+  if(status=="loading"){
+    return null
   }
+  if(status==="unauthenticated"){
+    return null;
+  }
+ 
+  const vendorId=session?.user?.id
+  
+  // if(status==="loading"){
+  //   return <p>Loading...</p>
+  // }
   
   
   function redirect(){

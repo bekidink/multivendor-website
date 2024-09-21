@@ -32,7 +32,7 @@ const Id=updateData?.id ?? ""
     },
   });
   
-  const isActive = watch("isActive")??null
+  const isActive = watch("isActive")??''
   const router=useRouter()
   function redirect(){
   router.push('/dashboard/community')
