@@ -6,7 +6,7 @@ import { columns } from './columns'
 import DataTable from '@/components/data-table-components/DataTable'
 
 const page = async() => {
-  const banners=await getData("banners")
+  const banners=await getData("banners")||[]
   return (
     <div>
     <PageHeader heading={"Banners"} href={"/dashboard/banners/new"} LinkTitle={"Add Banner"}/>

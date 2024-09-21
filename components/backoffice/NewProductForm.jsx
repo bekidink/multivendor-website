@@ -38,8 +38,8 @@ const NewProductForm = ({categories,farmers,updateData={}}) => {
       ...updateData
     },
   });
-  const isActive = watch("isActive");
-  const isWholesale=watch("isWholesale")
+  const isActive = watch("isActive")||null
+  const isWholesale=watch("isWholesale")||null
   const router=useRouter()
   function redirect(){
     router.push("/dashboard/products")

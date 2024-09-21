@@ -9,7 +9,7 @@ import React from 'react'
 import { columns } from './columns'
 
 const page = async() => {
-  const categories=await getData("categories")
+  const categories=await getData("categories")||[]
   return (
     <div>
      <PageHeader heading={"Category"} href={"/dashboard/categories/new"} LinkTitle={"Add Category"}/>

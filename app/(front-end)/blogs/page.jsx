@@ -3,7 +3,7 @@ import { getData } from '@/lib/getData'
 import React from 'react'
 
 export default async function page() {
-    const trainings=await getData('trainings')
+    const trainings=await getData('trainings')||[]
   return (
     <div>
       <CommunityTrainings title="Read All Trainings" trainings={trainings}/>

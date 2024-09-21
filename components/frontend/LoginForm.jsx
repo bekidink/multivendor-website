@@ -17,7 +17,7 @@ export default function LoginForm() {
   // const token = searchParams.get('token')
   useEffect(() => {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-    const token = searchParams.get("token");
+    const token = searchParams.get("token")??'';
     const id = searchParams.get("id");
     if (token && id) {
       setIsVerifying(true);
@@ -26,7 +26,7 @@ export default function LoginForm() {
         id,
       };
       async function verify() {
-        const data = await getData(`users/${id}`);
+        const data = await getData(`users/${id}`)||null
         if (data) {
           try {
             const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;

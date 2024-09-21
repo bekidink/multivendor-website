@@ -2,7 +2,7 @@
 import FormHeader from '@/components/backoffice/FormHeader'
 import NewCouponForm from '@/components/backoffice/NewCouponForm'
 
-import React, { useState } from 'react'
+import React from 'react'
 
 const NewCoupon = () => {
   

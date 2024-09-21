@@ -6,7 +6,7 @@ import { getData } from '@/lib/getData'
 import React from 'react'
 
 const NewCategory = async() => {
-  const marketsData=await getData("markets")
+  const marketsData=await getData("markets")||[]
   const markets=marketsData.map((market)=>{
     return{
       id:market.id,

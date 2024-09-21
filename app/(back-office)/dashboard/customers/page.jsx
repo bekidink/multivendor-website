@@ -6,7 +6,7 @@ import { columns } from './columns'
 import DataTable from '@/components/data-table-components/DataTable'
 
 const page = async() => {
-  const customersData=await getData("customers")
+  const customersData=await getData("customers")||[]
   
   return (
     <div>

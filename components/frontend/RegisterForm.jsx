@@ -23,7 +23,7 @@ export default function RegisterForm({role}) {
   const [emailErr, setEmailErr] = useState("");
   async function onSubmit(data) {
     try {
-      data.plan=plan
+      data.plan=plan??''
       setLoading(true);
       data.role=role
       const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;

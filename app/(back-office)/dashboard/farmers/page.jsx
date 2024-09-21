@@ -6,7 +6,7 @@ import { columns } from './columns'
 import DataTable from '@/components/data-table-components/DataTable'
 
 const page = async() => {
-  const usersData=await getData("users")
+  const usersData=await getData("users")||[]
   const farmersData=usersData.filter((user)=>user.role==="FARMER")
   const farmers=farmersData.map((farmer)=>{
     return {

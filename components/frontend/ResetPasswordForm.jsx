@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 export default function ResetPasswordForm() {
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams()||null;
   const router = useRouter();
   const {
     register,

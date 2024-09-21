@@ -6,7 +6,7 @@ import React from 'react'
 import { columns } from './columns'
 
 const page = async() => {
-  const trainings=await getData('trainings')
+  const trainings=await getData('trainings')||[]
   return (
     <div>
     <PageHeader heading={"Beki Community Trainings"} href={"/dashboard/community/new"} LinkTitle={"Add Training"}/>

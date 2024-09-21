@@ -31,9 +31,8 @@ const Id=updateData?.id ?? ""
       ...updateData
     },
   });
-  const title=watch('title')
-  const expiryDate=watch('expiryDate')
-  const isActive = watch("isActive");
+  
+  const isActive = watch("isActive")??null
   const router=useRouter()
   function redirect(){
   router.push('/dashboard/community')

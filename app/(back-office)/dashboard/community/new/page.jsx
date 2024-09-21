@@ -4,8 +4,8 @@ import { getData } from '@/lib/getData'
 import React from 'react'
 
 const page = async() => {
-  const categoriesData=await getData("categories")
-  const categories=categoriesData.map((category)=>{
+  const categoriesData=await getData("categories")||[]
+  const categories=categoriesData?.map((category)=>{
     return{
       id:category.id,
       title:category.title
