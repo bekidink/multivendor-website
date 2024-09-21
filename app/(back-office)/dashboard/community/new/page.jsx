@@ -4,7 +4,7 @@ import NewTrainingForm from '@/components/backoffice/NewTrainingForm'
 import { getData } from '@/lib/getData'
 import React, { useEffect } from 'react'
 
-const page = async() => {
+const Page = async() => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const page = async() => {
   )
 }
 
-export default page
+export default Page
