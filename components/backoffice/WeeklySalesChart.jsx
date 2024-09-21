@@ -113,7 +113,7 @@ const [chartToDisplay,setChartToDisplay]=useState(tabs[0].type)
 </div>
 {tabs.map((tab,i)=>{
   if(chartToDisplay===tab.type){
-    return <Line options={options} data={tab.data} />;
+    return <Line key={i} options={options} data={tab.data} />;
   }
   return null
 }

@@ -34,7 +34,7 @@ export default async function page({params:{slug}}) {
       <div className="col-span-full sm:col-span-12 bg-blue-600 rounded-md">
         {marketCategories && marketCategories?.map((category,i)=>{
           return (
-            <div className="py-8">
+            <div className="py-8" key={i}>
               <CategoryList isMarketPage={true} category={category}/>
             </div>
           )

@@ -50,7 +50,7 @@ export default function OrderCard({order}) {
                 {order.orderItems && order.orderItems.map((item,i)=>{
                     const slug=generateSlug(item.title)
                    return (
-                    <li className="relative flex pb-10 sm:pb-0">
+                    <li className="relative flex pb-10 sm:pb-0" key={i}>
                     <div className="flex-shrink-0">
                         <img className="object-cover rounded-lg w-28 h-28" src={item.imageUrl} alt="" />
                     </div>

@@ -18,10 +18,10 @@ import { useForm } from 'react-hook-form'
 
 const NewCouponForm = ({updateData={}}) => {
   const {data:session,status}=useSession()
- 
-  if(status==="loading"){
-    return <p>Loading...</p>
-  }
+  const title=watch('title')
+  const expiryDate=watch('expiryDate')
+  const isActive = watch("isActive");
+  const router=useRouter()
   const expiryDateNormal=convertIsoDateToNormal(updateData.expiryDate)  
   const initialImageUrl=updateData?.imageUrl ?? ""
   const[imageUrl,setImageUrl]=useState(initialImageUrl)
@@ -35,10 +35,11 @@ const NewCouponForm = ({updateData={}}) => {
       ...updateData
     },
   });
-  const title=watch('title')
-  const expiryDate=watch('expiryDate')
-  const isActive = watch("isActive");
-  const router=useRouter()
+  if(status==="loading"){
+    return <p>Loading...</p>
+  }
+  
+  
   function redirect(){
  router.push("/dashboard/coupons")
   }

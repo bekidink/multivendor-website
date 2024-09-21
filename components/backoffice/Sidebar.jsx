@@ -41,12 +41,13 @@ import { signOut, useSession } from "next-auth/react";
 const Sidebar = ({showSidebar,setShowSidebar}) => {
   const[openMenu,setOpenMenu]=useState(false)
   const {data:session,status}=useSession()
+  const pathname = usePathname();
   if(status==="loading"){
     return <p>loading...</p>
   }
   const role=session?.user?.role
   console.log(session?.user)
-  const pathname = usePathname();
+  
   async function handleLogOut(){
 await signOut()
   }
@@ -262,6 +263,7 @@ await signOut()
           const Icon = item.icon;
           return (
             <Link
+            key={i}
               href={item.href}
               className={
                 item.href === pathname

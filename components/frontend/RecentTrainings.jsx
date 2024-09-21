@@ -1,4 +1,5 @@
 import { convertIsoDateToNormal } from '@/lib/convertIsoDateToNormal'
+import Link from 'next/link'
 import React from 'react'
 
 export default function RecentTrainings({recentTrainings}) {
