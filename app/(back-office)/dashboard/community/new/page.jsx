@@ -2,7 +2,7 @@
 import FormHeader from '@/components/backoffice/FormHeader'
 import NewTrainingForm from '@/components/backoffice/NewTrainingForm'
 import { getData } from '@/lib/getData'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Page = () => {
   const [categories, setCategories] = useState([]);
