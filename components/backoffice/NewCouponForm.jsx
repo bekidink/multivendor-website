@@ -18,19 +18,15 @@ import { useForm } from 'react-hook-form'
 
 const NewCouponForm = ({updateData={}}) => {
   const {data:session,status}=useSession()
-  if(status=="loading"){
-    return null
-  }
-  if(status==="unauthenticated"){
-    return null;
-  }
   const isActive = watch("isActive")??null
   const router=useRouter()
   const expiryDateNormal=convertIsoDateToNormal(updateData.expiryDate)  
   const initialImageUrl=updateData?.imageUrl ?? ""
   const[imageUrl,setImageUrl]=useState(initialImageUrl)
   const Id=updateData?.id ?? ""
-  const vendorId=session?.user?.id
+ 
+ 
+  const vendorId=session?.user?.id??''
   updateData.expiryDate=expiryDateNormal
   const[loading,setLoading]=useState(false)
   const{register,handleSubmit,watch,formState:{errors},reset}=useForm({
