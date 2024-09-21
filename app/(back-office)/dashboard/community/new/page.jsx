@@ -5,16 +5,20 @@ import React from 'react'
 
 const page = async() => {
   const categoriesData=await getData("categories")||[]
-  const categories=categoriesData?.map((category)=>{
-    return{
-      id:category.id,
-      title:category.title
-    }
-  })
+  let categories=[]
+  if(categoriesData){
+    categories=categoriesData?.map((category)=>{
+      return{
+        id:category.id,
+        title:category.title
+      }
+    })
+  }
+  
   return (
    <div>
      <FormHeader title={"New Training"}/>
-    <NewTrainingForm categories={categories}/>
+    {categories && <NewTrainingForm categories={categories}/>}
    </div>
   )
 }

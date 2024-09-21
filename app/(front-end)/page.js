@@ -9,10 +9,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-const categories=await getData("categories")
+const categories=await getData("categories")||[]
 const session=await getServerSession(authOptions)
-const training=await getData('trainings')
-console.log(categories)
+const training=await getData('trainings')||[]
+
   return (
     <div className=" min-h-screen">
     <Hero/>

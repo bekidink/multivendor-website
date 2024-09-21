@@ -14,7 +14,7 @@ const NewMarket =async () => {
   return (
     <div>
        <FormHeader title={"New Market"}/>
- <NewMarketForm categories={categories}/>
+ {categories && <NewMarketForm categories={categories}/>}
     </div>
   
   )

@@ -11,7 +11,7 @@ export default async function page() {
     <div>
      <PageHeader heading={"Markets"} href={"/dashboard/markets/new"} LinkTitle={"Add Market"}/>
      <div className="py-8">
-      <DataTable data={markets} columns={columns} filterKeys={['title']} />
+      {markets && <DataTable data={markets} columns={columns} filterKeys={['title']} />}
      </div>
     </div>
   )

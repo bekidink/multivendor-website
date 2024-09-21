@@ -6,7 +6,7 @@ export default async function page() {
     const trainings=await getData('trainings')||[]
   return (
     <div>
-      <CommunityTrainings title="Read All Trainings" trainings={trainings}/>
+      {trainings && <CommunityTrainings title="Read All Trainings" trainings={trainings}/>}
     </div>
   )
 }

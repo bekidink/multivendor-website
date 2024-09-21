@@ -5,7 +5,7 @@ import { getData } from '@/lib/getData'
 import React from 'react'
 
 const UpdateCategory = async({params:{id}}) => {
-  const category= await getData(`banners/${id}`)
+  const category= await getData(`banners/${id}`)|| null
   return (
     <div>
     <FormHeader title={"Update Category"}/>

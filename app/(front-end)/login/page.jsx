@@ -1,8 +1,9 @@
 import LoginForm from '@/components/frontend/LoginForm'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const page = () => {
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <section className="bg-gray-50 dark:bg-gray-900">
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a
@@ -26,6 +27,7 @@ const page = () => {
       </div>
     </div>
   </section>
+  </Suspense>
   )
 }
 

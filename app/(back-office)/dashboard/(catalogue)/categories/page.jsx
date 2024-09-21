@@ -14,7 +14,7 @@ const page = async() => {
     <div>
      <PageHeader heading={"Category"} href={"/dashboard/categories/new"} LinkTitle={"Add Category"}/>
      <div className="py-8">
-      <DataTable data={categories} columns={columns} filterKeys={['title']} />
+      { categories && <DataTable data={categories} columns={columns} filterKeys={['title']} />}
      </div>
     </div>
   )

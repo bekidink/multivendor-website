@@ -11,7 +11,7 @@ const page = async() => {
     <div>
     <PageHeader heading={"Beki Community Trainings"} href={"/dashboard/community/new"} LinkTitle={"Add Training"}/>
     <div className="py-8">
-      <DataTable data={trainings} columns={columns} filterKeys={['title']} />
+      {trainings && <DataTable data={trainings} columns={columns} filterKeys={['title']} />}
      </div>
    </div>
   )

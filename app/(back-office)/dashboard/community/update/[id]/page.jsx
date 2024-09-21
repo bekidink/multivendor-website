@@ -4,8 +4,8 @@ import { getData } from '@/lib/getData'
 import React from 'react'
 
 export default async function updateTraining({params:{id}}) {
-    const training=await getData(`trainings/${id}`)
-    const categoriesData=await getData("categories")
+    const training=await getData(`trainings/${id}`)||null
+    const categoriesData=await getData("categories")||[]
   const categories=categoriesData.map((category)=>{
     return{
       id:category.id,

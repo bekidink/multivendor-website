@@ -12,7 +12,7 @@ const page = async() => {
     <div>
      {/* <PageHeader heading={"Farmers"} href={"/dashboard/farmers/new"} LinkTitle={"Add Farmer"}/> */}
      <div className="py-8">
-      <DataTable data={customersData} columns={columns} filterKeys={['email']}  />
+      { customersData && <DataTable data={customersData} columns={columns} filterKeys={['email']}  />}
      </div>
     </div>
   )

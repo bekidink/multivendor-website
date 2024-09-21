@@ -1,12 +1,13 @@
 import { getData } from '@/lib/getData';
 import { Info } from 'lucide-react'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 export default async function VerifyEmail({searchParams}) {
  const {userId}=searchParams;
  const user=await getData(`users/${userId}`)
  const {email}=user
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <div className="max-w-2xl mx-auto min-h-screen mt-8">
         <div id="alert-additional-content-1" className="p-4 mb-4 text-lime-800 border border-lime-300 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400 dark:border-blue-800" role="alert">
   <div className="flex items-center">
@@ -20,5 +21,6 @@ export default async function VerifyEmail({searchParams}) {
   
 </div>
     </div>
+    </Suspense>
   )
 }

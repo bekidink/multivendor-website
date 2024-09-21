@@ -22,7 +22,7 @@ const NewProduct = async() => {
   return (
     <div className="">
        <FormHeader title={"New Product"}/>
-     <NewProductForm categories={categories} farmers={farmers} />
+     {categories && farmers && <NewProductForm categories={categories} farmers={farmers} />}
     </div>
    
   )

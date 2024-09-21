@@ -8,7 +8,7 @@ export default async function UpdateCoupon({params:{id}}) {
   return (
     <div>
      <FormHeader title={"Update Coupon"}/>
-     <NewCouponForm updateData={coupon}/>
+     {coupon && <NewCouponForm updateData={coupon}/>}
     </div>
   )
 }
