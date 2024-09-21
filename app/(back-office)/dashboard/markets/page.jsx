@@ -5,7 +5,7 @@ import { getData } from '@/lib/getData'
 import React from 'react'
 import { columns } from './columns'
 
-const page = async() => {
+export default async function page() {
   const markets=await getData('markets')
   return (
     <div>
@@ -17,4 +17,3 @@ const page = async() => {
   )
 }
 
-export default page
