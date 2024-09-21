@@ -1,4 +1,4 @@
-"use client"
+
 import FormHeader from '@/components/backoffice/FormHeader'
 import NewCouponForm from '@/components/backoffice/NewCouponForm'
 
