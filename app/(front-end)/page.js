@@ -21,9 +21,7 @@ const training=await getData('trainings')||[]
       return <div className="py-16" key={i}> <CategoryList isMarketPage={false} category={category} />
       </div>
     })}
-   {/* <div className="py-16">
-   <CategoryList/>
-   </div> */}
+   
   
    <div className="">
 <CommunityTrainings title="Featured Trainings" trainings={training.slice(0,3)}/>

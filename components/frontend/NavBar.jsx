@@ -19,9 +19,7 @@ const NavBar = () => {
     <div className='bg-gray-50 dark:bg-lime-800'>
      
      <div className="flex items-center justify-between py-3 max-w-7xl mx-auto px-8 gap-8">
-    <Link className='' href={"/"}>
-        <Image src={"/logo.png"} alt='' className='w-24' width={24} height={24}/>
-    </Link>
+    
     <div className="flex-grow">
     <SearchForm/>
     </div>
@@ -36,7 +34,7 @@ const NavBar = () => {
       )}
 
 
-<HelpModal/>
+{/* <HelpModal/> */}
 <CartCount/>
     </div>
     <ModeToggle/>

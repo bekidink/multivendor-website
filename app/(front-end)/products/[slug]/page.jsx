@@ -21,9 +21,9 @@ const urlToShare=`${baseUrl}/products/${slug}`
  return (
     <div>
         <Breedcrumb/>
-        {product && <div className="grid grid-cols-12 gap-5">
+        {product && <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5">
        <ProductImageCarousel productImages={product.productImages} thumbnail={product.imageUrl}/>
-        <div className="col-span-6">
+        <div className="col-span-full sm:col-span-2 lg:col-span-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className='text-xl lg:text-3xl font-semibold'>{product.title}</h2>
             <ProductShareButton urlToShare={urlToShare}/>
@@ -52,50 +52,7 @@ const urlToShare=`${baseUrl}/products/${slug}`
            
           </div>
         </div>
-        <div className="col-span-3 sm:block bg-white border border-gray-200 rounded-lg sm:p-6 dark:bg-gray-800 dark:border-gray-700  text-slate-800 overflow-hidden shadow-md">
-        <h2 className='bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-50 py-4 px-6 font-semibold border-b border-gray-300 dark:border-gray-600'>
-       DELIVERY & RETURNS
-    </h2>
-    <div className="px-4">
-    <div className="flex rounded-lg py-2 px-4 bg-orange-400 text-slate-50 items-center gap-3">
-      <span>Beki Express</span>
-      <Send/>
-    </div>
-    </div>
-   <div className="py-3 text-slate-100 border-b border-gray-500">
-    Eligible for Free Delivery
-    <Link href={"#"}>View Details</Link>
-   </div>
-   <h2 className='text-slate-200 py-2'>Choose your Location</h2>
-   <div className="border-b border-gray-500 mb-3">
-   <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <option selected>Choose a country</option>
-    <option value="US">United States</option>
-    <option value="CA">Canada</option>
-    <option value="FR">France</option>
-    <option value="DE">Germany</option>
-  </select>
-   </div>
-   <div className="border-b border-gray-500 mb-3">
-   <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <option selected>Choose a state</option>
-    <option value="US">United States</option>
-    <option value="CA">Canada</option>
-    <option value="FR">France</option>
-    <option value="DE">Germany</option>
-  </select>
-   </div>
-   <div className="border-b border-gray-500 mb-3">
-   <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-    <option selected>Choose a city</option>
-    <option value="US">United States</option>
-    <option value="CA">Canada</option>
-    <option value="FR">France</option>
-    <option value="DE">Germany</option>
-  </select>
-   </div>
-
-        </div>
+        
       </div> }
       
       <div className=" bg-white dark:bg-slate-700 my-8 rounded-xl p-4">

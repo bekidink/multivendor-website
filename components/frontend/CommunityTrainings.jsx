@@ -26,11 +26,13 @@ const CommunityTrainings =async ({title,trainings}) => {
           </p>
         </div>
 
+      <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
       {
         trainings.map((item,i)=>(
           <BlogCard training={item} key={i}/>
         ))
       }
+      </div>
       </div>
     </section>
   )

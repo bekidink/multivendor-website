@@ -29,7 +29,7 @@ export default function Sorting({title,slug,isSearch}) {
 
    ]
     return (
-    <div className="flex items-center justify-between">
+    <div className="flex md:flex-col items-center justify-between">
             <h2 className='text-2xl font-medium'>{isSearch && "Search Results - "} {title}</h2>
         <div className="flex text-sm items-center gap-3">
             <p>Sort by:</p>

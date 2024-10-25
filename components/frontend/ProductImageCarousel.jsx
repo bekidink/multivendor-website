@@ -13,7 +13,7 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 export default function ProductImageCarousel({productImages=[],thumbnail}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
-    <div className="col-span-3">
+    <div className="col-span-3 sm:col-span-full">
         {productImages.length<=0?(
              <Image src={thumbnail} className='w-full' width={556} height={556}/>
         ):(

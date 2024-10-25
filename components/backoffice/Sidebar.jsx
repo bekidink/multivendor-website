@@ -203,13 +203,7 @@ await signOut()
   return (
     <div className={showSidebar?" sm:block sm:mt-0 mt-20 dark:bg-slate-700 bg-white space-y-6 w-64 h-screen dark:text-slate-200 text-slate-800  fixed left-0 top-0 shadow-md overflow-y-scroll":" sm:mt-0 mt-20 hidden sm:block dark:bg-slate-700 bg-white space-y-6 w-64 h-screen dark:text-slate-200 text-slate-800  fixed left-0 top-0 shadow-md overflow-y-scroll"}>
       <Link onClick={()=>setShowSidebar(false)} href={"/dashboard"} className="mb-12 px-6 py-4">
-        <Image
-          src={"/logo.png"}
-          alt=""
-          className="w-1/2"
-          width={36}
-          height={36}
-        />
+        
       </Link>
       <div className="space-y-3 flex flex-col ">
         <Link
@@ -235,7 +229,7 @@ await signOut()
                 {openMenu?<ChevronDown/>: <ChevronRight />}
                </button>
                </CollapsibleTrigger>
-               <CollapsibleContent className="rounded-lg px-3 pl-6 bg-slate-800">
+               <CollapsibleContent className="rounded-lg px-3 pl-6 text-slate-50 bg-slate-800">
               {catalogueLinks.length>0 && catalogueLinks.map((item,i)=>{
                const Icon=item.icon
                return (
@@ -245,7 +239,7 @@ await signOut()
              onClick={()=>setShowSidebar(!showSidebar)}
              className={
                pathname === item.href
-                 ? "flex items-center gap-x-3  py-2 text-sm  border-l-8 border-green-600"
+                 ? "flex items-center gap-x-3   py-2 text-sm  border-l-8 border-green-600"
                  : "flex items-center gap-x-3  py-2 "
              }
            >

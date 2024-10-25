@@ -22,40 +22,7 @@ const TrainingCarousel = ({trainings}) => {
           slidesToSlide: 1 // optional, default to 1.
         }
       };
-      const slides=[
-        {
-        imageUrl:"/img.jpg",
-        title:"vegtables"
-      },
-      {
-        imageUrl:"/logo.png",
-        title:"vegtables"
-      },
-      {
-        imageUrl:"/img.jpg",
-        title:"vegtables"
-      },
-      {
-        imageUrl:"/logo.png",
-        title:"vegtables"
-      },
-      {
-        imageUrl:"/img.jpg",
-        title:"vegtables"
-      },
-       {
-        imageUrl:"/img.jpg",
-        title:"vegtables"
-      },
-      {
-        imageUrl:"/logo.png",
-        title:"vegtables"
-      },
-      {
-        imageUrl:"/logo.png",
-        title:"vegtables"
-      }
-    ]
+     
   return (
     <Carousel
   swipeable={false}

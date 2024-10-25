@@ -17,10 +17,10 @@ export default function FilterComponent({category,products}) {
         <Sorting title={title} slug={slug} isSearch={category?.isSearch} />
      </div>
      <div className="grid grid-cols-12 py-8">
-        <div className="col-span-3">
+        <div className="col-span-full sm:col-span-3">
 <Filters slug={slug}/>
         </div>
-        <div className="col-span-9">
+        <div className="col-span-full sm:col-span-9">
   {products.length>0 && <FilterdProducts products={products} productCount={productCount}/> }          
 
         </div>

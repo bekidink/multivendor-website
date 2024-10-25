@@ -12,10 +12,10 @@ const Hero =async () => {
   return (
     <div className='grid grid-cols-12 gap-8 mb-6 px-8 lg:px-0'>
       <SidebarCategories/>
-      <div className=" col-span-full sm:col-span-7  overflow-hidden rounded-md bg-white dark:bg-slate-800">
+      <div className=" col-span-full sm:col-span-6  overflow-hidden rounded-md bg-white dark:bg-slate-800">
         <HeroCarousel banners={banners}/>
       </div>
-      <div className="col-span-2 hidden sm:block bg-white p-3 dark:bg-slate-800 rounded-lg">
+      <div className="col-span-3 hidden sm:block bg-white p-3 dark:bg-slate-800 rounded-lg">
 <Link href={"#"} className="flex items-center space-x-1 mb-3">
     <HelpCircle className='shrink-0 w-5 h-5 text-lime'/>
     <div className="flex flex-col gap-2">
@@ -34,10 +34,10 @@ const Hero =async () => {
     <CircleDollarSign className='shrink-0 w-5 h-5 text-lime-500'/>
     <div className="flex flex-col gap-2">
         <h2 className='uppercase'>Sell on Beki</h2>
-        <p className='text-[0.8rem] text-sm'>Million of Vistors</p>
+        <p className='text-[0.8rem] text-sm'></p>
     </div>
 </Link>
-<Image src={"/logo.png"} alt='' width={150} height={150} className='w-full'/>
+
       </div>
     </div>
   )
