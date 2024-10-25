@@ -17,7 +17,7 @@ export default function HeroCarousel  ({banners}) {
     <Slider>
       {banners.map((item,i)=>{
 return (
-  <Slide index={i}>
+  <Slide index={i} key={i}>
     <Image src={item.imageUrl} alt='' fill className='w-full h-full object-cover' />
   </Slide>
 )
